@@ -1,0 +1,2 @@
+* Create project using Vite
+  - yarn create vite

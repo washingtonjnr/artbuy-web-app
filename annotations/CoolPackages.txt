@@ -1,0 +1,30 @@
+To icons:
+  - heroicons
+  - lucide-react
+  - phosphoricons
+  - radix-ui (used in fincheck)
+
+
+To form / validations:
+  validations:
+    - zod
+    - zodResover
+
+  form:
+    - react-hook-form
+
+    to inputs:
+      - react-number-format
+
+
+To state:
+  - react-query (like graphql and redux)
+
+
+To perfumery:
+ - reacat-hot-toast (beauty alerts)
+
+
+To UI:
+  - radix
+  - antd

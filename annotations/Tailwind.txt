@@ -1,0 +1,22 @@
+* Add Tailwind (with Vite)
+  - yarn add -D tailwindcss postcss autoprefixer
+
+* Add extensions:
+  - Tailwind fold
+  - Tailwind CSS intellisense
+  - Disable styled components
+
+* To init:
+  - npx tailwindcss init -p
+
+* Config:
+  - add following code on tailwind.config:
+    content = [
+      "./index.html",
+      "./src/**/*.{js,ts,jsx,tsx}"
+    ],
+
+* Add tailwind directives to CSS:
+  - @tailwind base;
+  - @tailwind components;
+  - @tailwind utilities;
