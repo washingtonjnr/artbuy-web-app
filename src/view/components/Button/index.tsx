@@ -22,11 +22,14 @@ export function Button({
       {...props}
       disabled={disabled || isLoading}
       className={cn(
-        "px-6 h-12 rounded-2xl font-medium text-white bg-teal-900 hover:bg-teal-800 disabled:text-gray-500 disabled:cursor-not-allowed disabled:bg-gray-300 transition-all",
+        "px-6 h-14 rounded-3xl font-bold text-white bg-primary-700 hover:bg-primary-800 disabled:text-gray-500 disabled:cursor-not-allowed disabled:bg-gray-300 transition-all",
+        //
         variant === "DANGER" &&
           "bg-red-900 text-white border-2 hover:bg-red-800",
+        //
         variant === "GHOST" &&
           "!bg-transparent text-gray-900 border-2 border-gray-900 hover:border-gray-600 hover:text-gray-600",
+        //
         className
       )}
     >

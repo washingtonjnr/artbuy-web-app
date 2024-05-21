@@ -12,8 +12,7 @@ export const baseUrl = import.meta.env.VITE_BASE_API_URL;
 export const api = axios.create({
   baseURL: baseUrl,
   headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
+    "Content-Type": "application/json"
   }
 });
 
@@ -25,8 +24,6 @@ api.interceptors.request.use(
 
     if (accessToken) {
       config.headers.Authorization = `Bearer ${accessToken}`;
-    } else {
-      window.location.href = "/";
     }
 
     await sleep(500);
@@ -40,10 +37,9 @@ api.interceptors.request.use(
 
 // AFTER REQUEST
 api.interceptors.response.use(undefined, async ({ config, response }) => {
-  const navigate = useNavigate();
-  // 
-  const msgError = response.data?.errors;
-  const customError = msgError;
+  // const msgError = response.data?.errors;
+  console.log(response.data)
+  const customError = "msgError";
   const originalRequest = config;
 
   if (response.status === 401) {
@@ -67,6 +63,8 @@ api.interceptors.response.use(undefined, async ({ config, response }) => {
 
       return axios(originalRequest);
     } catch (err) {
+      const navigate = useNavigate();
+
       window.localStorage.removeItem("access_token");
       window.localStorage.removeItem("refresh_token");
 

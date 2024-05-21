@@ -1,30 +1,31 @@
-# React + TypeScript + Vite
+[REACT_BAGDE]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[TS_BADGE]: https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1 align="center" style="font-weight: bold;">[ARTBUY]</h1>
 
-Currently, two official plugins are available:
+![react][REACT_BAGDE]
+![typescript][TS_BADGE]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align="center">
+  <img src=".github/logo.png" alt="ArtBuy logo" width="300px">
+</p>
 
-## Expanding the ESLint configuration
+<h2 id="started">📌 About</h2>
+API built on React, made for managing users, works of art, financial transactions and auctions, providing a safe and reliable experience for buyers and sellers.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<h2 id="started">🚀 Getting started</h2>
+Here you describe how to run your project locally
 
-- Configure the top-level `parserOptions` property like this:
+<h3>Prerequisites</h3>
+Here you list all prerequisites necessary for running your project. For example:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- [Node](https://nodejs.org/en/download/package-manager) (used: v20.12.2)
+- [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable) (used: 1.22.19)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+<h3>Running</h3>
+- Create [.env] referring to [.env.example] and change the values
+
+- Install Dependencies: `yarn` | `npm i`
+
+- Run Project: `yarn dev` | `npm run dev`

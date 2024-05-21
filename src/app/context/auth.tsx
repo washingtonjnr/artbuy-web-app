@@ -1,11 +1,11 @@
-import { createContext, useState } from "react";
+import { createContext, useCallback, useState } from "react";
 import { localStorageKeys } from "../config/localStorageKeys";
 
 type AuthContextValue = {
   // Selects
   signedIn: boolean;
   // Dispatchs
-  onSignin(): void;
+  onSignin(accessToken: string, refreshToken: string): void;
   onSignout(): void;
 };
 
@@ -18,13 +18,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return !!hasToken;
   });
 
-  function onSignin() {
-    setSignedIn(true);
-  }
+  const onSignout = useCallback(() => {
+    window.localStorage.removeItem(localStorageKeys.ACCESS_TOKEN);
+    window.localStorage.removeItem(localStorageKeys.REFRESH_TOKEN);
 
-  function onSignout() {
     setSignedIn(false);
-  }
+  }, []);
+
+  const onSignin = useCallback((accessToken: string, refreshToken: string) => {
+    window.localStorage.setItem(localStorageKeys.ACCESS_TOKEN, accessToken);
+    window.localStorage.setItem(localStorageKeys.REFRESH_TOKEN, refreshToken);
+
+    setSignedIn(true);
+  }, []);
 
   return (
     <AuthContext.Provider
