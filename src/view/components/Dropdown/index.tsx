@@ -67,7 +67,7 @@ export function DropdownItem({
     <DropdownMenu.Item
       onSelect={onSelect}
       className={cn(
-        "min-h-12 flex items-center gap-2 py-2 px-1 text-sm text-gray-800 outline-none data-[highlighted]:bg-teal-50 data-[highlighted]:text-teal-900 transition-all cursor-pointer rounded-lg",
+        "min-h-12 flex items-center gap-2 py-2 px-1 text-sm text-gray-800 outline-none data-[highlighted]:bg-primary-50 data-[highlighted]:text-primary-900 transition-all cursor-pointer rounded-lg",
         className
       )}
     >

@@ -1,8 +1,9 @@
 import { ComponentProps, forwardRef } from "react";
-// Icons
-import { CrossCircledIcon } from "@radix-ui/react-icons";
+// Components
+import { MessageError } from "./components/MessageError";
 // Utils
 import { cn } from "../../../app/utils/cn";
+import { FloatLabel } from "./components/FloatLabel";
 
 interface InputProps extends ComponentProps<"input"> {
   name: string;
@@ -28,19 +29,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           placeholder=" "
         />
 
-        <label
-          htmlFor={inputId}
-          className="absolute text-xs top-1.5 left-5 pointer-events-none text-gray-800 peer-placeholder-shown:text-base peer-placeholder-shown:top-4 transition-all"
-        >
-          {placeholder ?? name}
-        </label>
+        <FloatLabel inputId={inputId} label={placeholder ?? name} />
 
-        {error && (
-          <div className="flex mt-1 gap-2 items-center text-red-900 text-xs">
-            <CrossCircledIcon />
-            <span>{error}</span>
-          </div>
-        )}
+        {error && <MessageError message={error} />}
       </div>
     );
   }

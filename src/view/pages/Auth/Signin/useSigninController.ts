@@ -25,7 +25,7 @@ const schema = z.object({
     .min(8, LABEL_ERRORS.INVALID_PASSWORD),
 });
 
-type FormData = z.infer<typeof schema>;
+type SigninFormData = z.infer<typeof schema>;
 
 export function useSigninController() {
   const navigate = useNavigate();
@@ -34,19 +34,19 @@ export function useSigninController() {
     formState: { errors },
     register,
     handleSubmit: hookFormHandleSubmit,
-  } = useForm<FormData>({
+  } = useForm<SigninFormData>({
     // Validation is done in zodResolver
     resolver: zodResolver(schema),
     defaultValues: {
-      email: "junior@araujo.com",
-      password: "Teste123",
+      // email: "junior@araujo.com",
+      // password: "Teste123",
     },
   });
 
-  const { mutateAsync, isPending } = useMutation({
+  const { mutateAsync, isPending: isLoading } = useMutation({
     mutationKey: ["POST", "signin"],
     mutationFn: async (data: SigninParams) => {
-      return authService.signin(data);
+      return await authService.signin(data);
     },
   });
 
@@ -54,10 +54,10 @@ export function useSigninController() {
 
   const handleSubmit = hookFormHandleSubmit(async (data) => {
     try {
-      const { payload } = await mutateAsync(data);
+      const { accessToken, refreshToken } = await mutateAsync(data);
       
-      if ("accessToken" in payload && "refreshToken" in payload) {
-        onSignin("accessToken", "refresh_token");
+      if (accessToken && refreshToken) {
+        onSignin(accessToken, refreshToken);
       }
     } catch (error) {
       toast.error("Invalid credentials");
@@ -65,11 +65,11 @@ export function useSigninController() {
   });
 
   function handleGoToSignup() {
-    navigate("/signin");
+    navigate("/signup");
   }
 
   return {
-    isLoading: isPending,
+    isLoading,
     errors: errors,
     register: register,
     handleSubmit: handleSubmit,

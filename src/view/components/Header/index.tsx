@@ -3,8 +3,8 @@ import { Menu } from "../Menu";
 
 export function Header() {
   return (
-    <header className="w-full flex justify-between items-center bg-white py-2 px-2 rounded-md">
-      <Logo className="text-teal-900 h-6" />
+    <header className="sticky top-0 left-0 w-full flex justify-between items-center py-3 px-6 shadow-lg bg-gradient-to-t from-primary-400 via-primary-700 to-[#270e25]">
+      <Logo className="text-white h-12" />
 
       <Menu />
     </header>

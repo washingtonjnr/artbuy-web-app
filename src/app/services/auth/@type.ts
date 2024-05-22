@@ -1,4 +1,4 @@
-export type AuthResponse = {
+export type AuthResponse<T> = {
   success: boolean;
-  payload: object;
+  payload: T;
 };

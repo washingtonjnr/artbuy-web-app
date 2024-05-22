@@ -1,5 +1,6 @@
 import { NumericFormat } from "react-number-format";
-import { CrossCircledIcon } from "@radix-ui/react-icons";
+// Components
+import { MessageError } from "../../components/MessageError";
 // Utils
 import { cn } from "../../../../../app/utils/cn";
 
@@ -11,7 +12,13 @@ type InputProps = {
   onChange?(event: React.ChangeEvent<HTMLInputElement>): void;
 };
 
-export function InputCurrency({ value, placeholder, className, error, onChange }: InputProps) {
+export function InputCurrency({
+  value,
+  placeholder,
+  className,
+  error,
+  onChange,
+}: InputProps) {
   return (
     <div className="relative">
       <NumericFormat
@@ -21,17 +28,13 @@ export function InputCurrency({ value, placeholder, className, error, onChange }
         placeholder={placeholder}
         onChange={onChange}
         className={cn(
-          "w-full !text-gray-800 text-[32px] font-bold tracking-[-0.5px] !outline-none",
+          "w-full h-14 px-5 pt-4 rounded-3xl bg-primary-50 peer placeholder-shown:pt-0 focus:border-gray-700 outline-none transition-all",
+          error && "!bg-red-100",
           className
         )}
       />
 
-      {error && (
-        <div className="flex mt-1 gap-2 items-center text-red-900 text-xs">
-          <CrossCircledIcon />
-          <span>{error}</span>
-        </div>
-      )}
+      {error && <MessageError message={error} />}
     </div>
   );
 }

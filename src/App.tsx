@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // Component (LIB)
 import { Toaster } from "react-hot-toast";
 // Context
-import { AuthProvider } from "./app/context/auth";
+import { AuthProvider } from "./app/contexts/auth";
 // Routes
 import { Router } from "./router";
 // Styles

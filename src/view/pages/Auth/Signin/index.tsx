@@ -9,8 +9,8 @@ export function SigninPage() {
     useSigninController();
 
   return (
-    <section>
-      <h2 className="text-gray-700 text-sm">Sign in your account</h2>
+    <>
+      <h2 className="text-sm">Sign in your account</h2>
 
       <form
         onSubmit={handleSubmit}
@@ -19,6 +19,7 @@ export function SigninPage() {
         <Input
           type="email"
           placeholder="Email"
+          autoComplete="email"
           error={errors.email?.message}
           {...register("email")}
         />
@@ -28,6 +29,7 @@ export function SigninPage() {
             type="password"
             placeholder="Password"
             error={errors.password?.message}
+            autoComplete="current-password"
             {...register("password")}
           />
 
@@ -54,6 +56,6 @@ export function SigninPage() {
           Create now
         </span>
       </p>
-    </section>
+    </>
   );
 }
